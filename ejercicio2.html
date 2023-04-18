@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+
+<h1>Juego de adivinar</h1>
+
+<script>
+    function saltoLinea() {
+        document.write("<br>")
+    }
+
+    function imprimir(frase) {
+        //document.write(frase)
+        alert(frase)
+    }
+
+    var numeroAdivinar = Math.round(Math.random(1)*100+1);
+    var numeroJugador = 0;
+
+    while(numeroAdivinar != numeroJugador){
+
+        var numeroJugador = parseInt(prompt("ingresa un número del 1 al 100 para adivinar"));
+
+        if(numeroJugador == numeroAdivinar){
+            imprimir("Felicidades adivinaste, el número es "+numeroAdivinar);
+        }
+        else if(numeroJugador > numeroAdivinar){
+            imprimir("Estas por encima");
+        }
+        else{
+            imprimir("Estas por debajo");
+        }
+    }
+
+</script>
