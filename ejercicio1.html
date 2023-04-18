@@ -21,17 +21,21 @@
         return punto
     }
 
-    puntos = punto(victorias,empates)
+    puntos = punto(victorias,empates);
 
-    imprimir("el número de puntos del equipo es: " + puntos)
+    imprimir("el número de puntos del equipo es: " + puntos);
 
-    if(puntos >= 50)
-    {
-        imprimir("El equipo clasifica.")
+    if(puntos >= 50){
+        imprimir("El equipo clasifica.");
+        if(victorias > 16){
+            imprimir("el equipo supero el record");
+        }
     }
     else
     {
         imprimir("El equipo esta eliminado.")
     }
+
+
 
 </script>
