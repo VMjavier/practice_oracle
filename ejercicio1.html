@@ -1,5 +1,28 @@
 <meta charset="UTF-8">
 
 <script>
-    
+    function saltalinea()
+    {
+        document.write("<br>")
+    }
+
+    function imprimir(frase)
+    {
+        document.write(frase)
+        saltalinea()
+    }
+
+    var victorias = parseInt(prompt("ingresa el número de victorias"));
+    var empates = parseInt(prompt("ingresa el número de empates"));
+
+    function punto(vic,emp)
+    {
+        punto = vic*3 +emp
+        return punto
+    }
+
+    puntos = punto(victorias,empates)
+
+    imprimir("el número de puntos del equipo es: " + puntos)
+
 </script>
