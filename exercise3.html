@@ -28,4 +28,29 @@
         i += 1
     }
 
+    document.write("<h2>Promedio de edades de los miembros de la familia con WHILE</h2>");
+
+    var nFamiliares = parseInt(prompt("Ingrese la cantidad de miembros de la familia"));
+    var i = 1;
+    var sumEdades = 0;
+
+    while(i <= nFamiliares){
+        edad = parseInt(prompt("ingrese la edad familiar " + i));
+        sumEdades = sumEdades + edad;
+        i += 1;
+    }
+
+    imprimir("la edad promedio de los familiares es: " + sumEdades/nFamiliares)
+
+    document.write("<h2>Números pares</h2>");
+
+    i = 1;
+    while(i <= 100){
+        if(i%2 ==  0){
+            imprimir(i);
+        }
+        i += 1;
+    }
+    imprimir("FIN")
+
 </script>
