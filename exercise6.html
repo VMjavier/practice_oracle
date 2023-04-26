@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+
+<h1>Dado N, escribir el producto desde 1 hasta N.</h1>
+
+<script>
+    function saltoLinea() {
+        document.write("<br>")
+    }
+
+    function imprimir(frase) {
+        document.write(frase)
+        saltoLinea()
+    }
+
+    var n = parseInt(prompt("ingresa el número N para calcular."));
+    var nproduct = 1;
+
+    for(i=1; i<=n; i++){
+        nproduct = nproduct*i;
+    }
+
+    imprimir("El producto de 1 hasta " + n + " es " + nproduct)
+</script>
