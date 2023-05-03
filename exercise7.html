@@ -1,0 +1,51 @@
+<meta charset = "UTF-8">
+<canvas width="600" height="600"></canvas>
+
+<script>
+    function rgbAleatorio(){
+        r = Math.round(Math.random()*255);
+        g = Math.round(Math.random()*255);
+        b = Math.round(Math.random()*255);
+        c = "rgb(" + r + "," + g + "," + b + ")"
+    return c;
+    }
+
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+    var n = 6;
+    
+    for(j=0; j<n; j++){
+        for(i=0; i < n; i++){
+            pincel.fillStyle = rgbAleatorio();
+            pincel.fillRect(100*i,100*j,100,100);
+            pincel.strokeStyle = "black";
+            pincel.strokeRect(100*i,100*j,100,100);
+        }
+    }
+
+    function rectangulo(a,b,medida){
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+        pincel.fillStyle = "green";
+        pincel.fillRect(a,b,medida,4*medida);
+        pincel.strokeStyle = "black";
+        pincel.strokeRect(a,b,medida,4*medida);
+    }
+
+    rectangulo(10,15,40);
+    rectangulo(100,250,80);
+  
+    function cuadrado(a,b,color){
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+        pincel.fillStyle = color;
+        pincel.fillRect(a,b,50,50);
+        pincel.strokeStyle = "black";
+        pincel.strokeRect(a,b,50,50);
+    }
+
+    cuadrado(100,100,"red");
+    cuadrado(50,50,"blue");
+
+
+</script>
