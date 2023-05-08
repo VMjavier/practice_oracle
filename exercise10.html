@@ -1,0 +1,44 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+
+    pincel.fillStyle = "grey";
+    pincel.fillRect(0,0,600,400);
+
+    function rgbAleatorio(){
+        r = Math.round(Math.random()*255);
+        g = Math.round(Math.random()*255);
+        b = Math.round(Math.random()*255);
+        c = "rgb(" + r + "," + g + "," + b + ")"
+    return c;
+    }
+
+    indiceColorActual = 0;
+    function dibujarCirculo(evento) {
+        indiceColorActual++;//se incrementa en cada activación de la función
+        radio = 20;
+        color = ["blue", "red", "green"];
+        var x = evento.pageX-pantalla.offsetLeft;
+        var y = evento.pageY-pantalla.offsetTop;
+        pincel.fillStyle = color[indiceColorActual-1];
+        pincel.beginPath();
+        pincel.arc(x, y, radio, 0, 2*3.14);
+        pincel.fill();
+        console.log(indiceColorActual)
+        if(indiceColorActual > 2)
+        {
+            indiceColorActual = 0;
+        }
+    }
+
+    function alterarColor() {
+       indiceColorActual++;
+       alert(indiceColorActual);
+       return false; //menú contextual padrón de `canvas` no sea exhibido
+    }
+
+
+    pantalla.onclick = dibujarCirculo;
+</script>
