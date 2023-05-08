@@ -1,0 +1,70 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    function dibujarRectangulo(x, y, base, altura, color) {
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        pincel.fillStyle=color;
+        pincel.fillRect(x,y, base, altura);
+        pincel.strokeStyle="black";
+        pincel.strokeRect(x,y, base, altura);
+    }
+
+    function escribirTexto(x , y, texto) {
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        pincel.font="15px Georgia";
+        pincel.fillStyle="black";
+        pincel.fillText(texto, x, y);    
+    }
+
+
+ 
+    var serie2009 = [10, 40, 40, 5, 5];
+    var serie2019 = [81, 9, 3, 3, 4];
+    var colores = ["blue","green","yellow", "red","gray"];
+
+    function barras(serie1,serie2,c){
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+        x=100;
+        y=100;
+        altura = 0;
+        for(i=0;i<5;i++){
+            pincel.fillStyle=colores[i];
+            pincel.fillRect(x,y+altura, 100, serie1[i]);
+            pincel.strokeStyle="black";
+            pincel.strokeRect(x,y+altura,100,serie1[i])
+            altura += serie1[i];
+        }
+
+        altura = 0;
+        for(i=0;i<5;i++){
+            pincel.fillStyle=colores[i];
+            pincel.fillRect(x+200,y+altura, 100, serie2[i]);
+            pincel.strokeStyle="black";
+            pincel.strokeRect(x+200,y+altura,100,serie2[i])
+            altura += serie2[i];
+        }
+    }
+
+    barras(serie2009,serie2019,colores);
+
+    serie1=10*serie2009;
+    escribirTexto(300 , 300, serie1)
+
+    // for(i=0 ; i<40 ;i++){
+    // var pantalla = document.querySelector("canvas");
+    // var pincel = pantalla.getContext("2d");
+    // pincel.strokeStyle="black";
+    // pincel.strokeRect(10,10*i,600,0)
+    // pincel.strokeStyle="red";
+    // pincel.strokeRect(100,0,0,400)
+    // pincel.strokeRect(300,0,0,400)
+    // }
+
+
+</script>
