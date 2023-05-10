@@ -1,0 +1,33 @@
+<canvas width="600" height="400"></canvas>
+
+
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+
+    pincel.fillStyle = "grey";
+    pincel.fillRect(0,0,600,400);
+
+    function dibujarCirculo(x, y, r, color){
+        pincel.fillStyle = color;
+        pincel.beginPath();
+        pincel.arc(x,y,r,0,2*Math.PI);
+        pincel.fill();
+    }
+
+    xAleatorio = 400;
+    yAleatorio = 300;
+
+    function diana(x,y,r){
+        dibujarCirculo(x,y,r*2.0,"red");
+        dibujarCirculo(x,y,r*1.8,"white");
+        dibujarCirculo(x,y,r*1.6,"red");
+        dibujarCirculo(x,y,r*1.4,"white");
+        dibujarCirculo(x,y,r,"red");
+    }
+
+    diana(600*Math.random(),400*Math.random(),50*Math.random());
+
+
+
+</script>
