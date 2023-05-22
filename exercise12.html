@@ -15,19 +15,48 @@
         pincel.fill();
     }
 
-    xAleatorio = 400;
-    yAleatorio = 300;
-
     function diana(x,y,r){
         dibujarCirculo(x,y,r*2.0,"red");
-        dibujarCirculo(x,y,r*1.8,"white");
-        dibujarCirculo(x,y,r*1.6,"red");
-        dibujarCirculo(x,y,r*1.4,"white");
+        dibujarCirculo(x,y,r*1.75,"white");
+        dibujarCirculo(x,y,r*1.5,"red");
+        dibujarCirculo(x,y,r*1.25,"white");
         dibujarCirculo(x,y,r,"red");
     }
 
-    diana(600*Math.random(),400*Math.random(),50*Math.random());
+    function ActualizarPantalla(){
+        pincel.clearRect(0,0,600,400)
+    }
 
+    function sortearPosicion(maximo){
+        return Math.floor(Math.random()*maximo)
+    }
 
+    // xAleatorio = sortearPosicion(600);
+    // yAleatorio = sortearPosicion(400);
+    // rAleatorio = sortearPosicion(50);
+
+    function movimiento(){
+        ActualizarPantalla();
+        xAleatorio = sortearPosicion(600);
+        yAleatorio = sortearPosicion(400);
+        rAleatorio = sortearPosicion(50);
+        diana(xAleatorio,yAleatorio,rAleatorio);
+    }
+
+    setInterval(movimiento,1000);
+
+    function disparar(evento){
+        var x = evento.pageX - pantalla.offsetLeft
+        var y = evento.pageY - pantalla.offsetTop
+
+        if( (x < xAleatorio + rAleatorio) &&
+            (x > xAleatorio - rAleatorio) &&
+            (y < yAleatorio + rAleatorio) &&
+            (y > yAleatorio - rAleatorio)){
+                alert("Tiro certero")
+            } 
+    }
+
+    pantalla.onclick = disparar;
 
 </script>
