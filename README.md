@@ -3,3 +3,5 @@
 - Repaso de Git y GitHub
 
 ```np install react```
+
+* Actualizar el REAME para el git pull.
